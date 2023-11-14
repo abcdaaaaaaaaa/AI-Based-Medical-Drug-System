@@ -1,6 +1,6 @@
 # AI-Medical-Drug-Cabinet
 
-## Code
+## Google Colab Code
 !nvidia-smi
 
 from google.colab import drive
