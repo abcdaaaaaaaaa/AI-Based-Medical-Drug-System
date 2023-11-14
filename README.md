@@ -18,9 +18,10 @@ drive.mount('/content/drive')
 
 !python train.py  --device 0 --batch-size 4 --data coco.yaml --img 1280 1280  --weights yolov7-e6e.pt --name yolov7-e6e  --hyp data/hyp.scratch.p5.yaml --epochs 100
 
-## Coco.yaml
+## coco.yaml
 
-train: ../data/train/images/
+train: ../data/train/images/  
+
 val: ../data/val/images/
 
 nc: 2
