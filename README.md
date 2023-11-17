@@ -4,6 +4,7 @@
 !nvidia-smi
 
 from google.colab import drive
+
 drive.mount('/content/drive')
 
 !unzip -q /content/drive/MyDrive/yolov7/data.zip
