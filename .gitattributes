@@ -1,0 +1,3 @@
+*.yaml linguist-detectable=true
+*.yaml linguist-language=YAML
+*.yaml text
