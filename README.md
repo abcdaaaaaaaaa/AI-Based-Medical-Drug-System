@@ -1,7 +1,7 @@
 # AI-Medical-Drug-Cabinet
 
 ## Google Colab Code
-!nvidia-smi
+!nvidia-smi # pls connect to (Runtime -> Change runtime type -> T4 GPU) before operating
 
 from google.colab import drive
 
