@@ -1,0 +1,7 @@
+RewriteEngine on
+AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
+ErrorDocument 404 https://radiology.uzay.info
+
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
