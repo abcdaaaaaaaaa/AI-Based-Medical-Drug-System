@@ -35,7 +35,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     <p id="selectedOptionText">Secilen Rahatsizlik Belirtisi:</p>
     <div id="doseForm" class="dose-form hidden">
-        <label for="age">Yaş (1'den küçükse rasyonel sayı girin):</label>
+        <label for="age">Yaş (3'ten küçükse rasyonel sayı girin):</label>
         <input type="number" id="age" name="age">
         <label for="weight">Kilo (10'dan küçükse rasyonel sayı girin):</label>
         <input type="number" id="weight" name="weight">
