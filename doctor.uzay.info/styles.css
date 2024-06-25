@@ -1,0 +1,132 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+            width: 300px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .doctorImage {
+            margin: 20px auto;
+        }
+
+        #doctorImage {
+            width: 150px;
+            height: 150px;
+        }
+
+        .option {
+            opacity: 0;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: inline-block;
+            animation: fadeIn 2s forwards, fadeDown 1s forwards;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .option:hover {
+            background-color: #e0e0e0;
+        }
+
+        .selected {
+            background-color: #000e44;
+            color: #fff;
+            margin-top: 20px;
+            animation: fadeIn 2s forwards, fadeDown 2s forwards, slideDown 2s forwards;
+        }
+
+        #selectedOptionText {
+            margin-top: 20px;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 2s forwards, fadeDown 2s forwards, slideDown 2s forwards;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); }
+            to { transform: translateY(0); }
+        }
+
+        .dose-form {
+            margin-top: 20px;
+            text-align: left;
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        .dose-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .dose-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .dose-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #000e44;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .dose-form button:hover {
+            background-color: #333;
+        }
+
+        .dose-result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        .logout {
+            color: #5cb85c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logout:hover {
+            text-decoration: underline;
+        }

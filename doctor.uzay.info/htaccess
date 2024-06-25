@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# HTTP'yi HTTPS'ye yönlendirme
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+# Giriş yapılmamışsa login sayfasına yönlendirme
+# RewriteCond %{REQUEST_URI} !^/login$
+# RewriteCond %{REQUEST_URI} !^/register$
+# RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico)$ [NC]
+# RewriteCond %{HTTP_COOKIE} !user_id
+# RewriteRule ^ /login [L,R=302]
+
+# URL'leri yeniden yazma: login.php -> /login ve register.php -> /register
+RewriteRule ^login$ login.php [L]
+RewriteRule ^register$ register.php [L]
+RewriteRule ^logout$ logout.php [L]
