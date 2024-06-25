@@ -272,11 +272,15 @@ function calculateDose() {
          doseResult.innerHTML += "Her poseti bir cay kasigi kaynamis ancak sogutulmus suyla karistirin. ";
          doseResult.innerHTML += "Puruzsuz bir macun olusacaktir. 2 cay kasigi kaynamis, sarmal su ekleyin ve karistirin. "; 
          doseResult.innerHTML += "Mamanin yarisinda, uygulamak icin bir kasik veya biberon kullanin.<br><br>";
+	     
          if (weight < 4.5){
+           doseAmount = 115;
            doseResult.innerHTML += "Gunluk Poset Dozu: 1 Poset, Gunde 6 kereden fazla almayin.";
          } else {
+           doseAmount = 230;
            doseResult.innerHTML += "Gunluk Poset Dozu: 2 Poset, Gunde 6 kereden fazla almayin.";
-         }		 
+         }
+
 	   } else if (age < 6) {
 	      medicinename = "Gaviscon ml";
 	      doseFrequency = 4;
