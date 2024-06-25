@@ -4,6 +4,6 @@
 *.htaccess linguist-detectable=true
 *.htaccess linguist-language=ApacheConf
 *.htaccess text
-Deep-Learning-Platform/detect.py linguist-detectable=false
-Deep-Learning-Platform/models/** linguist-detectable=false
-Deep-Learning-Platform/utils/** linguist-detectable=false
+*.sql linguist-detectable=true
+*.sql linguist-language=SQL
+*.sql text
