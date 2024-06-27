@@ -301,7 +301,7 @@ function calculateDose() {
 	   }
 	} else if (mainOptionSelected === 3) {
        medicinename = "Parasetemol mg";
-	   if (age < 0.083) {
+	   if (age < 0.0833) {
          doseResult.innerHTML = "Yasiniz 1 aydan kucuk. Ilac icin Uzmaniniza danisin.";	
 	     medicinename = "NotApproved";
        } else if (age < 18) {
@@ -333,20 +333,19 @@ function calculateDose() {
         }
     } else if (mainOptionSelected === 4) {
         medicinename = "Zyrtec mg"; 
+        doseFrequency = 1;
         if (age < 2) {
           doseResult.innerHTML = "2 yasin altindaki cocuklar icin bu ilac onerilmez. Lutfen Uzmaniniza danisiniz.";
-	      medicinename = "NotRecommended";
+	  medicinename = "NotRecommended";
+          doseFrequency = 0;
         } else if (age >= 2 && age < 6) {
             doseAmount = 2.5 + (age - 2) * 0.625;
-            doseFrequency = 1;
             doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde 1 kez alinmalidir.";
         } else if (age >= 6 && age < 12) {
-            doseAmount = 5 + (age - 6) * 0.8;
-            doseFrequency = 1;
+            doseAmount = 5 + (age - 6) * 0.833;
             doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde 1 kez alinmalidir.";
         } else if (age >= 12) {
             doseAmount = 10;
-            doseFrequency = 1;
             doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde 1 kez alinmalidir.";
         }
     }
