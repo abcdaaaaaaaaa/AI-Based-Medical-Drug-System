@@ -106,6 +106,8 @@ function selectSubOption(mainOption, subOption, optionText) {
     }
 }
 
+let res;
+
 function updateOptions(optionNumber) {
     var newOptions = [];
     switch (optionNumber) {
@@ -131,6 +133,7 @@ function updateOptions(optionNumber) {
         newOption.classList.add("option");
         newOption.textContent = optionText;
         newOption.onclick = function() {
+            res = " " + optionText;
             selectSubOption(optionNumber, index + 1, optionText);
         };
         optionsContainer.appendChild(newOption);
@@ -177,6 +180,7 @@ function showGuidanceForPain(subOption, optionText) {
         showDoseForm();
     }
 	
+	optionText +=  res;
     applySelectionStyle(event.target);
     selectedOptionText.innerHTML = "Secilen Rahatsizlik Belirtisi: " + optionText + "<br>" + guidance;
     selectedOptionText.style.opacity = 1; // Make selectedOptionText visible
