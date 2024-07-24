@@ -78,10 +78,10 @@ function selectSubOption(mainOption, subOption, optionText) {
                     guidance = "Parasetemol alin. Ates Takibi baslatin. Ilacla dusmezse veya ilacla dusup 2 gunden uzun surerse Uzmana gidiniz.";
                     showDoseForm();
                 } else if (subOption === 2) {
-                    guidance = "Parasetemol alin ve Direkt Uzmana gidiniz.";
+                    guidance = "Parasetemol alin Hemen Uzmana gidiniz.";
                     showDoseForm();
                 } else if (subOption === 4) {
-                    guidance = "Hemen Acil Servise gidin.";
+                    guidance = "Hemen Acil Servise gidiniz.";
                     medicinename = "EmergencyRoom";
                 } else if (subOption === 5) {
                     guidance = "Gun icerisinde dinlenmeye ozen gostererek 4-5 porsiyon taze meyve tuketmeniz onerilir. Rahatsizliginiz 5 gunden uzun surerse Uzmana gidiniz.";
@@ -182,7 +182,7 @@ function showGuidanceForPain(subOption, optionText) {
 	
 	optionText +=  res;
     applySelectionStyle(event.target);
-    selectedOptionText.innerHTML = "Secilen Rahatsizlik Belirtisi: " + optionText + "<br>" + guidance;
+    selectedOptionText.innerHTML = "Secilmis Rahatsizlik Belirtisi: " + optionText + "<br>" + guidance;
     selectedOptionText.style.opacity = 1; // Make selectedOptionText visible
 }
 
@@ -225,19 +225,10 @@ function showDoseForm() {
 }
 
 let doseAmount;
-let doseAmountValue;
-
-Object.defineProperty(window, 'doseAmount', {
-    get() {
-        return doseAmountValue;
-    },
-    set(value) {
-        doseAmountValue = parseFloat(value).toFixed(3);
-    }
-});
 
 function calculateDose() {
     var age = parseFloat(document.getElementById("age").value).toFixed(4);
+    var age = parseInt(document.getElementById("age").value) + (parseFloat(document.getElementById("mounth").value).toFixed(4) / 12);
     var weight = parseFloat(document.getElementById("weight").value).toFixed(4);
     var doseFrequency; // times per day
 
@@ -251,13 +242,13 @@ function calculateDose() {
           if (doseAmount > 400) {doseAmount = 400;}     
 		  if (PainIntensity === 1 || PainIntensity === 2) {doseFrequency = 3;}
 		  else if (PainIntensity === 3 || PainIntensity === 4) {doseFrequency = 4;}
-          doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde " + doseFrequency + " kez alinmalidir.";
+          doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " mg, Gunde " + doseFrequency + " kez alinmalidir.";
         } else {
 		  if (PainIntensity === 1) {doseFrequency = 4; doseAmount = 200;}
 		  else if (PainIntensity === 2) {doseFrequency = 6; doseAmount = 200;}
 		  else if (PainIntensity === 3) {doseFrequency = 4; doseAmount = 400;} 		
 		  else if (PainIntensity === 4) {doseFrequency = 6; doseAmount = 400;} 		
-          doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde " + doseFrequency + " kez alinmalidir.";
+          doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " mg, Gunde " + doseFrequency + " kez alinmalidir.";
         }
     } else if (mainOptionSelected === 2) {
 	   if (age < 1) {
@@ -290,18 +281,18 @@ function calculateDose() {
 	      doseFrequency = 4;
           doseAmount = 5 * (age - 2) / 8 + 2.5;	
           doseResult.innerHTML = "Yasiniz 6 yastan kucuk. Bu ilaci doktor gozetiminde alin.<br>";
-          doseResult.innerHTML += "Gunluk Ilac Dozu: " + doseAmount + " ml, Gunde 4 kez alinmalidir.";		 
+          doseResult.innerHTML += "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " ml, Gunde 4 kez alinmalidir.";		 
        } else if (age <= 18) { // exceptional
 	      medicinename = "Gaviscon ml";
 	      doseFrequency = 4;
 		  doseAmount = 5 * age / 6;
-          doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " ml, Gunde 4 kez alinmalidir.";
+          doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " ml, Gunde 4 kez alinmalidir.";
 	   } else {
 	      medicinename = "Gaviscon ml";
 	      doseFrequency = 4;
 		  if (StomachIntensity === 1) {doseAmount = 15;}
 		  else if (StomachIntensity === 2) {doseAmount = 20;}
-          doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " ml, Gunde 4 kez alinmalidir.";
+          doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " ml, Gunde 4 kez alinmalidir.";
 	   }
 	} else if (mainOptionSelected === 3) {
        medicinename = "Parasetemol mg";
@@ -317,7 +308,7 @@ function calculateDose() {
                 doseAmount = weight * 15;
                 if (doseAmount > 1000) {doseAmount = 1000;}
 	             doseFrequency = 4;
-                 doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde 4 kez alinmalidir.";
+                 doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " mg, Gunde 4 kez alinmalidir.";
             }
         } else {
             if (weight < 40) {
@@ -333,7 +324,7 @@ function calculateDose() {
                 doseAmount = 1000;
                 doseFrequency = 4;
             }
-            doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde " + doseFrequency + " kez alinmalidir.";
+            doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " mg, Gunde " + doseFrequency + " kez alinmalidir.";
         }
     } else if (mainOptionSelected === 4) {
         medicinename = "Zyrtec mg"; 
@@ -344,20 +335,20 @@ function calculateDose() {
           doseFrequency = 0;
         } else if (age >= 2 && age < 6) {
             doseAmount = 2.5 + (age - 2) * 0.625;
-            doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde 1 kez alinmalidir.";
+            doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " mg, Gunde 1 kez alinmalidir.";
         } else if (age >= 6 && age < 12) {
             doseAmount = 5 + (age - 6) * 0.833;
-            doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde 1 kez alinmalidir.";
+            doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " mg, Gunde 1 kez alinmalidir.";
         } else if (age >= 12) {
             doseAmount = 10;
-            doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount + " mg, Gunde 1 kez alinmalidir.";
+            doseResult.innerHTML = "Gunluk Ilac Dozu: " + doseAmount.toFixed(4) + " mg, Gunde 1 kez alinmalidir.";
         }
     }
-
+    
 var xhr = new XMLHttpRequest();
 xhr.open("POST", "save_dose.php", true);
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.send("user_id=" + user_id + "&medicine=" + medicinename + "&name=" + name + "&surname=" + surname + "&age=" + age + "&weight=" + weight + "&dose=" + doseAmount + "&dailyAmount=" + doseFrequency + "&discomfort=" + discomfort + "&guidance=" + guidance);
+xhr.send("user_id=" + user_id + "&medicine=" + medicinename + "&name=" + name + "&surname=" + surname + "&age=" + age + "&weight=" + weight + "&dose=" + doseAmount.toFixed(4) + "&dailyAmount=" + doseFrequency + "&discomfort=" + discomfort + "&guidance=" + guidance);
 }
 
 setTimeout(typeQuestion, 1500);
