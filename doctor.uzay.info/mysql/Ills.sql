@@ -9,6 +9,7 @@ CREATE TABLE Ills (
     dose DOUBLE,
     daily_amount VARCHAR(4),
     discomfort VARCHAR(100),
+    sub_discomfort VARCHAR(100),
     guidance VARCHAR(200),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
