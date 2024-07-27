@@ -3,7 +3,7 @@ session_start();
 require 'dbnormal.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Doz bilgilerini veritabanına kaydet
+
     $user_id = (int) $_POST['user_id'];
     $medicine = $conn->real_escape_string($_POST['medicine']);
     $name = $conn->real_escape_string($_POST['name']);
@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dose = (double) $_POST['dose'];
     $dailyAmount = $conn->real_escape_string($_POST['dailyAmount']);
     $discomfort = $conn->real_escape_string($_POST['discomfort']);
+    $subdiscomfort = $conn->real_escape_string($_POST['subdiscomfort']);
     $guidance = $conn->real_escape_string($_POST['guidance']);
 
-    // Hazırlanmış sorgu
-    $stmt = $conn->prepare("INSERT INTO Ills (user_id, medicine, name, surname, age, weight, dose, daily_amount, discomfort, guidance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("isssdddsss", $user_id, $medicine, $name, $surname, $age, $weight, $dose, $dailyAmount, $discomfort, $guidance);
+    $stmt = $conn->prepare("INSERT INTO Ills (user_id, medicine, name, surname, age, weight, dose, daily_amount, discomfort, sub_discomfort, guidance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("isssdddssss", $user_id, $medicine, $name, $surname, $age, $weight, $dose, $dailyAmount, $discomfort, $subdiscomfort, $guidance);
 
     $stmt->execute();
     $stmt->close();
