@@ -23,7 +23,7 @@ let urgent = 0;
 
 
 function selectOption(optionNumber, optionText) {
-    clearTimeout(changeTimer); // Stop the change timer
+    clearTimeout(changeTimer);
 
     var option = event.target;
     mainOptionSelected = optionNumber;
@@ -35,13 +35,13 @@ function selectOption(optionNumber, optionText) {
         option.classList.add("selected");
         selectedOptionText.innerHTML = "Seçilmiş Rahatsızlık Belirtisi: " + optionText;
         discomfort = optionText;
-        selectedOptionText.style.opacity = 1; // Make selectedOptionText visible
+        selectedOptionText.style.opacity = 1;
         lastSelectedOption = option;
 
         changeTimer = setTimeout(function() {
             updateOptions(optionNumber);
             askNextQuestion(optionNumber);
-        }, 1000); // 1 second delay
+        }, 1000);
     } else {
         option.classList.remove("selected");
         selectedOptionText.innerHTML = "Seçilen Rahatsızlık Belirtisi:";
@@ -82,20 +82,25 @@ function selectSubOption(mainOption, subOption, optionText) {
     applySelectionStyle(event.target);
     subDiscomfort = optionText;
     selectedOptionText.innerHTML = "Seçilmiş Rahatsızlık Belirtisi: " + optionText + "<br>" + guidance;
-    selectedOptionText.style.opacity = 1; // Make selectedOptionText visible
+    selectedOptionText.style.opacity = 1;
 }
 
-        function submitfire() {
-            const inputElement = document.getElementById('fireInput');
-            fire = inputElement.value;
-            if (fire >= 36.1) {
-                document.getElementById('inputContainer').style.display = 'none';
-            } else if (fire && fire < 36.1) {
-                alert('Lütfen geçerli bir değer giriniz.');
-            } else {
-                alert('Lütfen bir değer giriniz.');
-            }
-        }
+let sumbit = 0;
+
+function nextfire() { 
+    askNextQuestion(6);
+    updateOptionsForFire();     
+}
+
+function submitfire() {
+    const inputElement = document.getElementById('fireInput');
+    fire = inputElement.value;
+    if (fire >= 36.1) {
+        document.getElementById('inputContainer').style.display = 'none';
+        nextfire();
+    } else if (fire && fire < 36.1) alert('Lütfen geçerli bir değer giriniz.');
+    else alert('Lütfen bir değer giriniz.');
+}
 
 function updateOptions(optionNumber) {
     var newOptions = [];
@@ -109,21 +114,9 @@ function updateOptions(optionNumber) {
         case 3:
             document.getElementById('inputContainerWrapper').style.display = 'flex';
             document.getElementById('fireInput').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                submitfire();
-                askNextQuestion(6);
-                updateOptionsForFire(); 
-            }
-        });
-        
-        document.getElementById('submitButton').addEventListener('click', function() {
-            submitfire();
-            askNextQuestion(6);
-            updateOptionsForFire(); 
-        });
-        
-        // Reset last selected option for the new set of options
-        lastSelectedOption = null;
+            if (event.key === 'Enter') { submitfire(); } });
+            document.getElementById('submitButton').addEventListener('click', function() { submitfire(); });
+            lastSelectedOption = null;
             break;
         case 4:
             newOptions = ["Kaşıntı", "Sulu Gözler", "Hapşırma", "Öksürme ve Solunum Problemi"];
@@ -144,7 +137,6 @@ function updateOptions(optionNumber) {
         optionsContainer.appendChild(newOption);
     });
 
-    // Reset last selected option for the new set of options
     lastSelectedOption = null;
 }
 
@@ -161,7 +153,6 @@ function updateOptionsForPain() {
         optionsContainer.appendChild(newOption);
     });
 
-    // Reset last selected option for the new set of options
     lastSelectedOption = null;
 }
 
@@ -179,7 +170,7 @@ function showGuidanceForPain(subOption, optionText) {
     subDiscomfort = optionText;
     applySelectionStyle(event.target);
     selectedOptionText.innerHTML = "Seçilmiş Rahatsızlık Belirtisi: " + optionText + "<br>" + guidance;
-    selectedOptionText.style.opacity = 1; // Make selectedOptionText visible
+    selectedOptionText.style.opacity = 1;
 }
 
 function updateOptionsForFire() {
@@ -195,7 +186,6 @@ function updateOptionsForFire() {
         optionsContainer.appendChild(newOption);
     });
 
-    // Reset last selected option for the new set of options
     lastSelectedOption = null;
 }
 
@@ -220,7 +210,7 @@ function showGuidanceForFire(subOption, optionText) {
     subDiscomfort = optionText;
     applySelectionStyle(event.target);
     selectedOptionText.innerHTML = "Seçilmiş Rahatsızlık Belirtisi: " + optionText + "<br>" + guidance;
-    selectedOptionText.style.opacity = 1; // Make selectedOptionText visible
+    selectedOptionText.style.opacity = 1;
 }
 
 function askNextQuestion(optionNumber) {
@@ -266,7 +256,7 @@ function showDoseForm() {
 
 function calculateDose() {
     var weight = parseFloat(document.getElementById("weight").value).toFixed(2);
-    var doseFrequency; // times per day
+    var doseFrequency;
 
     doseResult.innerHTML += "Mevcut Hasta Bilgisi: " + customAge + " " + weight + " kilo.<br><br>";
 
