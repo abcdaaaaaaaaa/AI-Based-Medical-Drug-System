@@ -33,7 +33,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="option" onclick="selectOption(1, 'Ağrı Sorunları')">Ağrı Sorunları</div>
         <div class="option" onclick="selectOption(2, 'Bulantı ve Mide Sorunları')">Bulantı ve Mide Sorunları</div>
         <div class="option" onclick="selectOption(3, 'Yüksek Ateş ve Yorgunluk')">Yüksek Ateş ve Yorgunluk</div>
-        <div class="option" onclick="selectOption(4, 'Öksürük, Burun Tıkanıklıgı, Göz ve Burun Alerjileri')">Öksürük, Burun Tıkanıklıgı, Göz ve Burun Alerjileri</div>
+        <div class="option" onclick="selectOption(4, 'Öksürük, Burun Tıkanıklığı, Göz ve Burun Alerjileri')">Öksürük, Burun Tıkanıklığı, Göz ve Burun Alerjileri</div>
     </div>
     <p id="selectedOptionText">Seçilen Rahatsızlık Belirtisi:</p>
     <div id="doseForm" class="dose-form hidden">
