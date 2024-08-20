@@ -18,7 +18,7 @@ function typeQuestion() {
     }
 }
 
-let discomfort, subDiscomfort, guidance, medicineName, StomachIntensity, fire, res, PainIntensity, doseAmount;
+let discomfort, subDiscomfort, guidance, medicineName, StomachIntensity, temp, res, PainIntensity, doseAmount;
 let urgent = 0;
 
 
@@ -69,7 +69,7 @@ function selectSubOption(mainOption, subOption, optionText) {
             showDoseForm();
             break;
         case 3:
-            updateOptionsForFire();   
+            updateOptionsForTemp();   
             break;
         case 4:
             if (subOption >= 1 && subOption <= 3) guidance = "Zyrtec almanız önerilir. Belirtileriniz 5 günden daha uzun sürerse ve yüksek alerjik reaksiyon durumu olursa uzmana gidiniz.";
@@ -87,18 +87,18 @@ function selectSubOption(mainOption, subOption, optionText) {
 
 let sumbit = 0;
 
-function nextfire() { 
+function nexttemp() { 
     askNextQuestion(6);
-    updateOptionsForFire();     
+    updateOptionsForTemp();     
 }
 
-function submitfire() {
-    const inputElement = document.getElementById('fireInput');
-    fire = inputElement.value;
-    if (fire >= 36.1) {
+function submittemp() {
+    const inputElement = document.getElementById('tempInput');
+    temp = inputElement.value;
+    if (temp >= 36.1) {
         document.getElementById('inputContainer').style.display = 'none';
-        nextfire();
-    } else if (fire && fire < 36.1) alert('Lütfen geçerli bir değer giriniz.');
+        nexttemp();
+    } else if (temp && temp < 36.1) alert('Lütfen geçerli bir değer giriniz.');
     else alert('Lütfen bir değer giriniz.');
 }
 
@@ -113,9 +113,9 @@ function updateOptions(optionNumber) {
             break;
         case 3:
             document.getElementById('inputContainerWrapper').style.display = 'flex';
-            document.getElementById('fireInput').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') { submitfire(); } });
-            document.getElementById('submitButton').addEventListener('click', function() { submitfire(); });
+            document.getElementById('tempInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') { submittemp(); } });
+            document.getElementById('submitButton').addEventListener('click', function() { submittemp(); });
             lastSelectedOption = null;
             break;
         case 4:
@@ -173,15 +173,15 @@ function showGuidanceForPain(subOption, optionText) {
     selectedOptionText.style.opacity = 1;
 }
 
-function updateOptionsForFire() {
-    var fireOptions = ["Titreme", "Kilo Kaybı", "Vücut Ağrısı", "Uykuya Meyil", "Hafif Bir Rahatsızlık"];
+function updateOptionsForTemp() {
+    var tempOptions = ["Titreme", "Kilo Kaybı", "Vücut Ağrısı", "Uykuya Meyil", "Hafif Bir Rahatsızlık"];
     optionsContainer.innerHTML = "";
-    fireOptions.forEach(function(optionText, index) {
+    tempOptions.forEach(function(optionText, index) {
         var newOption = document.createElement("div");
         newOption.classList.add("option");
         newOption.textContent = optionText;
         newOption.onclick = function() {
-            showGuidanceForFire(index + 1, optionText);
+            showGuidanceForTemp(index + 1, optionText);
         };
         optionsContainer.appendChild(newOption);
     });
@@ -189,9 +189,9 @@ function updateOptionsForFire() {
     lastSelectedOption = null;
 }
 
-function showGuidanceForFire(subOption, optionText) {
+function showGuidanceForTemp(subOption, optionText) {
     urgent = 0;      
-    if (fire > 39 || subOption === 4) { 
+    if (temp > 39 || subOption === 4) { 
         guidance = "Hemen Acil Servise gidiniz.";
         urgent = 1;      
     } else if (subOption === 1 || subOption === 3) {
@@ -199,14 +199,14 @@ function showGuidanceForFire(subOption, optionText) {
     } else if (subOption === 2) {
         guidance = "Paracetemol alın. Hemen uzmana gidiniz.";
     } else if (subOption === 5) {
-        if (fire <= 37.2) {
+        if (temp <= 37.2) {
 		  guidance = "Paracetemol alın. Rahatsızlığınız 2 günden daha uzun sürerse uzmana gidiniz.";
           urgent = -1;
 		}
         else guidance = "Paracetemol alın. Ateş Takibi Başlatın. İlaçla düşmezse veya ilaçla düşüp 2 günden daha uzun sürerse uzmana gidiniz.";
     }
     showDoseForm();
-	optionText = fire + "°C " + optionText;
+	optionText = temp + "°C " + optionText;
     subDiscomfort = optionText;
     applySelectionStyle(event.target);
     selectedOptionText.innerHTML = "Seçilmiş Rahatsızlık Belirtisi: " + optionText + "<br>" + guidance;
@@ -348,12 +348,12 @@ function calculateDose() {
                 doseFrequency = 2;
             } else if (weight >= 40 && weight < 50) {
 // The literature recommends 500-1000, but 1000 was chosen here because high fever along with body pain or chills are advanced conditions.
-                if (fire > 37.2) doseAmount =  277.7778 * (fire - 37.2) + 500;
+                if (temp > 37.2) doseAmount =  277.7778 * (temp - 37.2) + 500;
                 else doseAmount = 500;
                 doseFrequency = 3;
             } else {
 // The literature recommends 500-1000, but 1000 was chosen here because high fever along with body pain or chills are advanced conditions.
-                if (fire > 37.2) doseAmount =  277.7778 * (fire - 37.2) + 500;
+                if (temp > 37.2) doseAmount =  277.7778 * (temp - 37.2) + 500;
                 else doseAmount = 500;
                 doseFrequency = 4;
             }
