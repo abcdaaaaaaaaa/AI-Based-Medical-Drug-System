@@ -44,7 +44,7 @@ if (!isset($_SESSION['user_id'])) {
         <p id="doseResult" class="dose-result"></p>
     <div id="inputContainerWrapper">
         <div id="inputContainer">
-            <input type="fire" id="fireInput" placeholder="Örnek: Ateşim 37.2°C" />
+            <input type="temp" id="tempInput" placeholder="Örnek: Ateşim 37.2°C" />
             <button id="submitButton">Gönder</button>
         </div>
     </div>
