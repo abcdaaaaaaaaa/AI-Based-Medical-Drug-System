@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Dolap Simülasyonu</title>
+    <style>
+        /* Genel Ayarlar */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: darkblue;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Taşmayı önlemek için */
+        }
+
+        /* Simülatör */
+        .simulator {
+            perspective: 1200px; /* 3D perspektif */
+        }
+
+        /* Dolap Yapısı */
+        .cabinet {
+            width: 500px; /* Dolabın genişliği */
+            height: 150px; /* Dolabın yüksekliği */
+            depth: 200px; /* Dolabın derinliği */
+            background-color: #3f00ff;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+            transform-style: preserve-3d; /* 3D görünüm için */
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        /* Dolabın Arka Yüzü */
+        .cabinet::before {
+            content: "";
+            position: absolute;
+            width: 500px; /* Arka kısım genişliği */
+            height: 150px; /* Arka kısım yüksekliği */
+            background-color: #483d8b; /* Arka kısmın rengi */
+            transform: translateZ(-100px); /* Arka kısım için derinlik */
+            border-radius: 10px;
+        }
+
+        /* Dolap Yan Yüzleri */
+        .cabinet .left {
+            position: absolute;
+            width: 150px; /* Sol yan kısım genişliği */
+            height: 150px; /* Sol yan kısım yüksekliği */
+            background-color: #191970;
+            transform: rotateY(-90deg) translateX(-250px); /* Sol yan için doğru konumlandırma */
+            border-radius: 10px;
+            left: 0; /* Soldan hizalama */
+        }
+
+        .cabinet .right {
+            position: absolute;
+            width: 150px; /* Sağ yan kısım genişliği */
+            height: 150px; /* Sağ yan kısım yüksekliği */
+            background-color: #191970;
+            transform: rotateY(90deg) translateX(250px); /* Sağ yan için doğru konumlandırma */
+            border-radius: 10px;
+            right: 0; /* Sağdan hizalama */
+        }
+
+        /* Raflar */
+        .shelf {
+            width: 80px;
+            height: 80px;
+            background-color: #4169e1;
+            border: 2px solid #0047ab;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: translateZ(10px); /* Raf derinliği için yukarı kaydır */
+        }
+
+        /* Küp Tasarımı */
+        .box-container {
+            display: flex;
+            gap: 50px; /* Küpler arasındaki mesafe */
+            margin-top: 20px;
+			font-size: 10.5px;
+			color: darkblue;
+            justify-content: center; /* Kutuları merkeze hizala */
+        }
+
+        .box {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            transform-style: preserve-3d; /* 3D görünüm için */
+            transition: transform 0.3s ease;
+            animation: rotate 5s infinite linear; /* Başlangıçta döner */
+        }
+
+        /* Küp Yüzeyleri */
+        .box .face {
+            position: absolute;
+            width: 60px;
+            height: 60px; /* 2 kat değişti */
+            background-color: #4100ff;
+            border: 2px solid #4100ff;
+            border-radius: 4px;
+            box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Küp Yüzey Konumları */
+        .box .front {
+            transform: translateZ(30px);
+        }
+        .box .back {
+            transform: rotateY(180deg) translateZ(30px);
+        }
+        .box .right {
+            transform: rotateY(90deg) translateZ(30px);
+        }
+        .box .left {
+            transform: rotateY(-90deg) translateZ(30px);
+        }
+        .box .top {
+            transform: rotateX(90deg) translateZ(30px);
+        }
+        .box .bottom {
+            transform: rotateX(-90deg) translateZ(30px);
+        }
+
+        /* Küp döndürme animasyonu */
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        /* Sürükleme sırasında şeffaflık */
+        .dragging {
+            opacity: 0.6;
+        }
+
+        /* Yerleştirilen kutuların görünümü */
+        .placed {
+            animation: none; /* Animasyonu durdur */
+            transform: rotate(0deg); /* Küpü düzelt */
+			font-size: 10.5px;
+			color: darkblue;
+        }
+    </style>
+    <link rel="shortcut icon" href="../images/doctor.ico">
+</head>
+<body>
+
+    <div class="simulator" id="simulator">
+        <!-- Dolap ve Raflar -->
+        <div class="cabinet" id="cabinet">
+            <div class="shelf" data-shelf="1"></div>
+            <div class="shelf" data-shelf="2"></div>
+            <div class="shelf" data-shelf="3"></div>
+            <div class="shelf" data-shelf="4"></div>
+            <div class="left"></div> <!-- Sol yan kısım -->
+            <div class="right"></div> <!-- Sağ yan kısım -->
+        </div>
+
+        <!-- Kutucuklar -->
+        <div class="box-container">
+            <div class="box" draggable="true" data-box="1">
+                <div class="face front">Ibuprofen</div>
+                <div class="face back">Ibuprofen</div>
+                <div class="face left">Ibuprofen</div>
+                <div class="face right">Ibuprofen</div>
+                <div class="face top">Ibuprofen</div>
+                <div class="face bottom">Ibuprofen</div>
+            </div>
+            <div class="box" draggable="true" data-box="2">
+                <div class="face front">Paracetamol</div>
+                <div class="face back">Paracetamol</div>
+                <div class="face left">Paracetamol</div>
+                <div class="face right">Paracetamol</div>
+                <div class="face top">Paracetamol</div>
+                <div class="face bottom">Paracetamol</div>
+            </div>
+            <div class="box" draggable="true" data-box="3">
+                <div class="face front">Gaviscon</div>
+                <div class="face back">Gaviscon</div>
+                <div class="face left">Gaviscon</div>
+                <div class="face right">Gaviscon</div>
+                <div class="face top">Gaviscon</div>
+                <div class="face bottom">Gaviscon</div>
+            </div>
+            <div class="box" draggable="true" data-box="4">
+                <div class="face front">Zyrtec</div>
+                <div class="face back">Zyrtec</div>
+                <div class="face left">Zyrtec</div>
+                <div class="face right">Zyrtec</div>
+                <div class="face top">Zyrtec</div>
+                <div class="face bottom">Zyrtec</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sürüklenen kutucuk ve hedef raf
+        let draggedBox = null;
+
+        // Küp Sürükleme Etkinlikleri
+        const boxes = document.querySelectorAll('.box');
+        boxes.forEach(box => {
+            box.addEventListener('dragstart', () => {
+                draggedBox = box;
+                box.style.animation = 'none'; // Sürüklenirken döndürmeyi durdur
+                setTimeout(() => {
+                    box.classList.add('dragging');
+                }, 0);
+            });
+
+            box.addEventListener('dragend', () => {
+                draggedBox = null;
+                box.classList.remove('dragging');
+                box.style.animation = ''; // Sürükleme bitince döndürmeyi tekrar başlat
+            });
+        });
+
+        // Raflara bırakma hedefleri
+        const shelves = document.querySelectorAll('.shelf');
+        shelves.forEach(shelf => {
+            shelf.addEventListener('dragover', (event) => {
+                event.preventDefault(); // Sürükleme esnasında varsayılan davranışı engelle
+            });
+
+            shelf.addEventListener('drop', () => {
+                if (draggedBox) {
+                    shelf.appendChild(draggedBox); // Sürüklenen kutuyu rafın içine ekle
+                    draggedBox.classList.add('placed'); // Küpü yerleştirildi olarak işaretle
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
