@@ -1,23 +1,3 @@
-function getWeightedRandomSentence(arr, weights) {
-  let weightedArray = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < weights[i]; j++) {
-      weightedArray.push(arr[i]);
-    }
-  }
-
-  return weightedArray[Math.floor(Math.random() * weightedArray.length)];
-}
-
-function createDescendingWeights(n) {
-  let weights = [];
-  for (let i = 0; i < n; i++) {
-    weights.push(n - i);
-  }
-  return weights;
-}
-
 var questionText = "Rahatsızlık Belirtiniz Nedir?";
 var questionElement = document.getElementById("question");
 var optionsContainer = document.getElementById("optionsContainer");
@@ -100,13 +80,13 @@ function selectSubOption(mainOption, subOption, optionText) {
             return;
         case 2:
             if (subOption === 1 || subOption === 4) {
-                guidance = getWeightedRandomSentence(window.sentences1, createDescendingWeights(window.sentences1.length));
+                guidance = window.sentences_1;
 				StomachIntensity = 1;
             } else if (subOption === 2 || subOption === 3) {
-                guidance = getWeightedRandomSentence(window.sentences2, createDescendingWeights(window.sentences2.length));
+                guidance = window.sentences_2;
 				StomachIntensity = 2;
             } else if (subOption === 5) {
-                guidance = getWeightedRandomSentence(window.sentences1, createDescendingWeights(window.sentences1.length));
+                guidance = window.sentences_1;
 				StomachIntensity = 0;
             }
             showDoseForm();
@@ -116,8 +96,8 @@ function selectSubOption(mainOption, subOption, optionText) {
             updateOptionsForTemp();   
             break;
         case 4:
-            if (subOption > 3) guidance = getWeightedRandomSentence(window.sentences3, createDescendingWeights(window.sentences3.length));
-            else guidance = getWeightedRandomSentence(window.sentences4, createDescendingWeights(window.sentences4.length));
+            if (subOption > 3) guidance = window.sentences_3;
+            else guidance = window.sentences_4;
             showDoseForm();
             break;
         default:
@@ -203,11 +183,11 @@ function updateOptionsForPain() {
 
 function showGuidanceForPain(subOption, optionText) {
     if (res2 != 3) {
-    if (subOption === 1 || subOption === 2) { guidance = getWeightedRandomSentence(window.sentences5, createDescendingWeights(window.sentences5.length)); }
-    else if (subOption === 3 || subOption === 4) { guidance = getWeightedRandomSentence(window.sentences6, createDescendingWeights(window.sentences6.length)); }
+    if (subOption === 1 || subOption === 2) { guidance = window.sentences_5; }
+    else if (subOption === 3 || subOption === 4) { guidance = window.sentences_6; }
     } else { temp = 37.2
-    if (subOption === 1 || subOption === 2) { guidance = getWeightedRandomSentence(window.sentences7, createDescendingWeights(window.sentences7.length)); }
-    else if (subOption === 3 || subOption === 4) {  guidance = getWeightedRandomSentence(window.sentences8, createDescendingWeights(window.sentences8.length)); }
+    if (subOption === 1 || subOption === 2) { guidance = window.sentences_7; }
+    else if (subOption === 3 || subOption === 4) {  guidance = window.sentences_8; }
     }
     
     PainIntensity = 5 - subOption;
@@ -238,20 +218,20 @@ function updateOptionsForTemp() {
 
 function showGuidanceForTemp(subOption, optionText) {
     if (temp >= 39 || subOption === 4) { 
-        guidance = getWeightedRandomSentence(window.sentences9, createDescendingWeights(window.sentences9.length));
+        guidance = window.sentences_9;
         urgent = 1;      
     } else if (subOption === 1 || subOption === 3) {
-        guidance = getWeightedRandomSentence(window.sentences10, createDescendingWeights(window.sentences10.length));
+        guidance = window.sentences_10;
     } else if (subOption === 2) {
-        guidance = getWeightedRandomSentence(window.sentences11, createDescendingWeights(window.sentences11.length));
+        guidance = window.sentences_11;
     } else if (subOption === 5) {
         if (temp <= 37.2) {
-		  guidance = getWeightedRandomSentence(window.sentences12, createDescendingWeights(window.sentences12.length));
+		  guidance = window.sentences_12;
           urgent = -2;
 		} else if (temp < 37.5) {
-		  guidance = getWeightedRandomSentence(window.sentences12, createDescendingWeights(window.sentences12.length));
+		  guidance = window.sentences_12;
           urgent = -1;
-		} else guidance = getWeightedRandomSentence(window.sentences10, createDescendingWeights(window.sentences10.length));
+		} else guidance = window.sentences_10;
     }
     showDoseForm();
 	optionText = temp + "°C " + optionText;
@@ -318,7 +298,7 @@ function calculateDose() {
 	   } else if (age < 0.25) {
 	     doseAmount = "NotApproved";
 	     doseFrequency = "NotApproved";
-         doseResult.innerHTML += "Yaşınız 3 aydan küçük. Ibuprofen için Uzmanınıza danışın.";
+         doseResult.innerHTML += "Yaşınız 3 aydan küçük. Ibuprofen için uzmanınıza danışın.";
        } else if (age < 18) {
           doseAmount = weight * 6;
           if (doseAmount > 400) doseAmount = 400;     
@@ -386,12 +366,12 @@ function calculateDose() {
         if (age < 0.0833) {
             doseAmount = "NotApproved";
             doseFrequency = "NotApproved";
-            doseResult.innerHTML += "Yaşınız 1 aydan küçük. Paracetemol için Uzmanınıza danışın."; 
+            doseResult.innerHTML += "Yaşınız 1 aydan küçük. Paracetemol için uzmanınıza danışın."; 
         } else if (age < 18) {
             if (weight < 5) {
                 doseAmount = "NotApproved";
                 doseFrequency = "NotApproved";
-                doseResult.innerHTML += "Kilonuz çok düşük. Paracetemol için Uzmanınıza danışın.";
+                doseResult.innerHTML += "Kilonuz çok düşük. Paracetemol için uzmanınıza danışın.";
             } else if (urgent == -2) { doseAmount = weight * 10; doseFrequency = 4; }
             else { doseAmount = weight * 15; doseFrequency = 4; }
         } else if (weight < 40) { doseAmount = 500; doseFrequency = 2; }
@@ -410,7 +390,7 @@ function calculateDose() {
         if (age < 2) {
           doseAmount = "NotRecommended";
           doseFrequency = "NotRecommended";
-          doseResult.innerHTML += "Yaşınız 2 yaştan küçük. Zyrtec için Uzmanınıza danışınız.";
+          doseResult.innerHTML += "Yaşınız 2 yaştan küçük. Zyrtec için uzmanınıza danışınız.";
         } else if (age >= 2 && age < 6) doseAmount = 2.5 + (age - 2) * 0.625;
         else if (age >= 6 && age < 12) doseAmount = 5 + (age - 6) * 0.833;
         else if (age >= 12) doseAmount = 10;
@@ -441,7 +421,7 @@ document.getElementById('doseForm').style.display = 'none';
 document.getElementById('optionsContainer').style.display = 'none';
 document.getElementById('question').style.display = 'none';
 
-setTimeout(() => { window.location.href = 'save_medicine'; }, 8000);
+setTimeout(() => { window.location.href = 'save_medicine'; }, 7000);
 }
 
 setTimeout(typeQuestion, 1250);
