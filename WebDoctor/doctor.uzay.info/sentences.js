@@ -12,6 +12,7 @@ window.w10 = [ "Belirtilerinizin", "Rahatsızlıklarınızın", "Şikayetleriniz
 window.w11 = [ "başvurunuz.", "gidiniz.", "görününüz.", "yöneliniz.", "başvurmalısınız.", "gitmelisiniz.", "görünmelisiniz.", "yönelmelisiniz." ]; // 8
 window.w12 = [ "başlatınız.", "izleyiniz." ]; // 2
 window.w13  = [ "hemen", "derhal", "hiç vakit kaybetmeden" ]; // 3
+window.w14  = [ "veya", "ya da" ]; // 2
 
 // Word Weights
 const weights = {
@@ -27,7 +28,8 @@ const weights = {
   w10:[5,4,3,2,1],
   w11:[8,7,6,5,4,3,2,1],
   w12:[2,1],
-  w13:[3,2,1]
+  w13:[3,2,1],
+  w14:[2,1]
 };
 
 // Weights Function
@@ -96,9 +98,9 @@ function sentences9() {
   return selectWord("w6") + " hastanenin acil servisine " + selectWord("w11");
 }
 
-// 384 Sentences
+// 768 Sentences
 function sentences10() {
-  return "Paracetamol " + selectWord("w1") + " Ateş takibi " + selectWord("w12") + " Ateşiniz ilaçla düşmezse veya ilaçla düşüp 2 günden daha " + selectWord("w5") + " " + selectWord("w4") + " " + selectWord("w13") + " " + selectWord("w3");
+  return "Paracetamol " + selectWord("w1") + " Ateş takibi " + selectWord("w12") + " Ateşiniz ilaçla düşmezse " + selectWord("w14") +  " ilaçla düşüp 2 günden daha " + selectWord("w5") + " " + selectWord("w4") + " " + selectWord("w13") + " " + selectWord("w3");
 }
 
 // 80 Sentences
@@ -111,7 +113,7 @@ function sentences12() {
   return "Paracetamol " + selectWord("w1") + " " + selectWord("w2") + " 5 günden daha " + selectWord("w5") + " " + selectWord("w4") + " " + selectWord("w3");
 }
 
-// 1876 Sentences
+// 2260 Sentences
 window.sentences_1 = sentences1();
 window.sentences_2 = sentences2();
 window.sentences_3 = sentences3();
