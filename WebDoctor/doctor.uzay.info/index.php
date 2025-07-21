@@ -29,7 +29,7 @@ if (!isset($_SESSION['user_id'])) {
     <div class="container">
         <div id="question" class="question"></div>
         <div class="doctorImage">
-            <img id="doctorImage" src="doctor.png" alt="Doctor Image">
+            <img id="doctorImage" src="../images/doctor.png" alt="Doctor Image">
         </div>
         <div id="optionsContainer">
             <div class="option" onclick="selectOption(1, 'Ağrı Sorunları')">Ağrı Sorunları</div>
