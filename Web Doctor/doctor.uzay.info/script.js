@@ -385,18 +385,18 @@ function calculateDose() {
           doseResult.innerHTML += "Günlük Gaviscon Dozu: " + formatNumber(doseAmount) + " ml, Günde 4 kez alınmalıdır.";
         }
 	} else if (mainOptionSelected === 3) {
-        medicineName = "Paracetemol mg";
-        if (urgent == 1) medicineName = "Paracetemol mg EmergencyRoom";
+        medicineName = "Paracetamol mg";
+        if (urgent == 1) medicineName = "Paracetamol mg EmergencyRoom";
         
         if (age < 0.0833) {
             doseAmount = "NotApproved";
             doseFrequency = "NotApproved";
-            doseResult.innerHTML += "Yaşınız 1 aydan küçük. Paracetemol için uzmanınıza danışın."; 
+            doseResult.innerHTML += "Yaşınız 1 aydan küçük. Paracetamol için uzmanınıza danışın."; 
         } else if (age < 18) {
             if (weight < 5) {
                 doseAmount = "NotApproved";
                 doseFrequency = "NotApproved";
-                doseResult.innerHTML += "Kilonuz çok düşük. Paracetemol için uzmanınıza danışın.";
+                doseResult.innerHTML += "Kilonuz çok düşük. Paracetamol için uzmanınıza danışın.";
             } else if (urgent == -2) { doseAmount = weight * 10; doseFrequency = 4; }
             else { doseAmount = weight * 15; doseFrequency = 4; }
         } else if (weight < 40) { doseAmount = 500; doseFrequency = 2; }
@@ -405,8 +405,8 @@ function calculateDose() {
         if (age >= 0.0833 && weight >= 5) {
             doseAmount = Math.min(doseAmount, 1000);
             if (urgent < 0) doseAmount = Math.min(doseAmount, 500);
-            urgent == 1 ? doseResult.innerHTML += "Acil Alınacak Paracetemol Dozu: " + formatNumber(doseAmount) + " mg." 
-            : doseResult.innerHTML += "Günlük Paracetemol Dozu: " + formatNumber(doseAmount) + " mg, Günde " + doseFrequency + " kez alınmalıdır.";
+            urgent == 1 ? doseResult.innerHTML += "Acil Alınacak Paracetamol Dozu: " + formatNumber(doseAmount) + " mg." 
+            : doseResult.innerHTML += "Günlük Paracetamol Dozu: " + formatNumber(doseAmount) + " mg, Günde " + doseFrequency + " kez alınmalıdır.";
         }
 
     } else if (mainOptionSelected === 4) {
