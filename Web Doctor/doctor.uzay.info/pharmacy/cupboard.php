@@ -104,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit">Kayıt Ol</button>
         </form>
         <?php if ($error_message) echo "<p style='color: red;'>$error_message</p>"; ?>
+        <p>Kullanıcı girişi için buraya <a href="/login">tıklaynız</a></p>
         <p>Kullanıcı kaydı için buraya <a href="/register">tıklaynız</a></p>
     </div>
 
