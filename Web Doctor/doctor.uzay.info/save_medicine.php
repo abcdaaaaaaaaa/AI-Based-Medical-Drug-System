@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İlaç Gerekçesi Gönder</title>
+    <title>İlaç Gerekçesini Gönder</title>
     <link rel="stylesheet" href="savestyle.css">
     <link rel="shortcut icon" href="../images/doctor.ico">
 </head>
