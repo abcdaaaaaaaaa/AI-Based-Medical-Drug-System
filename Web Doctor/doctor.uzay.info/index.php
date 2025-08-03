@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Doctor</title>
+    <title>3D Web Doctor</title>
     <link rel="shortcut icon" href="../images/doctor.ico">
     <link rel="stylesheet" href="style.css">
 </head>
