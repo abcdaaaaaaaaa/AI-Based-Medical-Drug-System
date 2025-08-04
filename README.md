@@ -21,3 +21,8 @@ If you are not registered, you can register to the system by clicking the Regist
 
 <img width="400" height="600" alt="registerform" src="https://github.com/user-attachments/assets/2bb0920d-c273-4ccc-aa29-a796c561d496" />
 
+You must register with your pharmacy for additional transactions. Pharmacy registration is not required for use solely for obtaining 3D Web Doctor recommendations.
+
+## Pharmacy Registration Form
+
+<img width="1000" height="450" alt="pharmacyregister" src="https://github.com/user-attachments/assets/60610679-2b8a-4d88-ac36-7d0f5cf8f4be" />
