@@ -210,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         document.getElementById("medicine").textContent = medicine;
         document.getElementById("name").textContent = name;
         document.getElementById("surname").textContent = surname;
-        document.getElementById("information").textContent = info === "\r\n" ? "Herhangi bir özel rahatsızlığı olmadığı bildirilmiştir." : info;
+        document.getElementById("information").textContent = info === "" ? "Herhangi bir özel rahatsızlığı olmadığı bildirilmiştir." : info;
         document.getElementById("age").textContent = age;
         document.getElementById("weight").textContent = weight;
         document.getElementById("dose").textContent = dose;
