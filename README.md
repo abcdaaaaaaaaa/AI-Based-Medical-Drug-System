@@ -98,10 +98,10 @@ Accept:
 
 Refuse:
 
-<img width="195" height="133" alt="detailrefuse" src="https://github.com/user-attachments/assets/cd26deea-d7b7-4510-9d9d-c933700f625e" />
 <img width="168" height="95" alt="refuse1" src="https://github.com/user-attachments/assets/8a614bce-ec5a-4baf-a953-aa7c1928d963" />
-<img width="266" height="226" alt="refuse2" src="https://github.com/user-attachments/assets/f7bd46fc-317c-4e43-8518-827c22829fb0" />
+<img width="195" height="133" alt="detailrefuse" src="https://github.com/user-attachments/assets/cd26deea-d7b7-4510-9d9d-c933700f625e" />
 <img width="229" height="178" alt="refuse3" src="https://github.com/user-attachments/assets/ba510960-e04f-4258-99a9-f03b5eb9766f" />
+<img width="266" height="226" alt="refuse2" src="https://github.com/user-attachments/assets/f7bd46fc-317c-4e43-8518-827c22829fb0" />
 
 Once all the operations are completed, the screen will look like this:
 
@@ -117,6 +117,18 @@ Users SQL:
 
 <img width="1000" height="100" alt="userssql" src="https://github.com/user-attachments/assets/8d2d1a81-1ecc-4905-8293-621a0256fb20" />
 
+Ills SQL:
+
+<img width="1000" height="90" alt="illssql" src="https://github.com/user-attachments/assets/799029cf-5c62-454c-ac90-f87e2d0be450" />
+
+Medicine Result SQL:
+
+<img width="1000" height="100" alt="medicine_resultsql" src="https://github.com/user-attachments/assets/7a858de8-8b70-420a-9073-6288feb5cb9b" />
+
 Pharmacies SQL:
 
-<img width="1000" height="80" alt="pharmaciessql" src="https://github.com/user-attachments/assets/3bc04bbb-cf18-44ad-a47f-709ed310b91e" />
+<img width="1000" height="80" alt="pharmaciessql" src="https://github.com/user-attachments/assets/dd1aa1f8-1417-4ccb-92e6-d76695d600b2" />
+
+Pharmacy Result SQL:
+
+<img width="1000" height="100" alt="pharmacy_resultsql" src="https://github.com/user-attachments/assets/eafc4cab-36b1-42e6-aefd-1c50eaf3566f" />
