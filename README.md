@@ -38,9 +38,16 @@ After completing the necessary steps, the system will direct you to our home pag
 
 ## Web Doctor
 
-<img width="766" height="389" alt="speakdoctor" src="https://github.com/user-attachments/assets/b65c7c49-39dd-4e18-8adc-8a42047517da" />
+<img width="1000" height="500" alt="speakdoctor" src="https://github.com/user-attachments/assets/b65c7c49-39dd-4e18-8adc-8a42047517da" />
 
 Our system supports both voice and text input. 3D Web Doctor switches to speech mode with text input and goes into standby mode after the voice command is executed.
 
 You can select the options by clicking Even if you select an option, you can change it until the system moves on to the next question. 
 After selecting an option, the system will move on to the next question within a few seconds.
+
+<img width="1000" height="500" alt="answer" src="https://github.com/user-attachments/assets/820e0dfb-584b-4d0e-ad66-2b00268ab390" />
+
+When the system is first opened, it aims to determine your general condition. It then uses specialized questions to identify your specific condition.
+
+<img width="400" height="400" alt="customquestion" src="https://github.com/user-attachments/assets/5b76b08b-553d-4458-b6b6-3f426bbc302b" />
+
