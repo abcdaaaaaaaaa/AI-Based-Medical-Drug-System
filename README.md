@@ -104,7 +104,7 @@ Refuse:
 <img width="168" height="95" alt="refuse1" src="https://github.com/user-attachments/assets/8a614bce-ec5a-4baf-a953-aa7c1928d963" />
 <img width="195" height="133" alt="detailrefuse" src="https://github.com/user-attachments/assets/cd26deea-d7b7-4510-9d9d-c933700f625e" />
 <img width="229" height="178" alt="refuse3" src="https://github.com/user-attachments/assets/ba510960-e04f-4258-99a9-f03b5eb9766f" />
-<img width="240" height="210" alt="refuse2" src="https://github.com/user-attachments/assets/f7bd46fc-317c-4e43-8518-827c22829fb0" />
+<img width="220" height="200" alt="refuse2" src="https://github.com/user-attachments/assets/f7bd46fc-317c-4e43-8518-827c22829fb0" />
 
 Once all the operations are completed, the screen will look like this:
 
