@@ -60,3 +60,15 @@ After this stage, the system offers treatment recommendations and, if necessary,
 
 <img width="400" height="450" alt="suggestdose" src="https://github.com/user-attachments/assets/c5f66e08-4d70-4ed8-9050-d6adfbcdb563" />
 
+The system has a total of 12 different general recommendations.
+However, leaving the general meaning of 12 different sentences the same, there are 2260 different sentences in total.
+The probability of selecting each of these sentences is not equal. The usage of words in daily life varies from more frequent to less frequent.
+
+When sentences change, they change not with their immediate meanings but with their direct synonyms. For example, if a sentence is a suggestion, all sentences become 
+suggestions, and if it's an imperative, all sentences become imperatives, all the way down to the order, which remains constant.
+
+If you will not be using the medicine cabinet after this stage, you are not required to register with the pharmacy.
+
+The system will direct you to transactions such as transfer to the medical medicine cabinet and medication registration within 7 seconds.
+7 seconds is the time it takes for the brain to perceive and make a decision. That's why it was determined to be 7 seconds.
+
