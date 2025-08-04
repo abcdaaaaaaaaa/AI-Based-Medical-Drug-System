@@ -78,9 +78,9 @@ If you will not be using the medicine cabinet after this stage, you are not requ
 
 After 7 seconds, the system will direct you to a new page /save_medicine.
 
+## Medical Medicine Cabinet Confirm Procedures
+
 <img width="500" height="450" alt="control" src="https://github.com/user-attachments/assets/075d04f1-8742-4a02-bd2c-e42a0705e117" />
-
-
 
 Assuming you've already registered with the pharmacy, the pharmacy will ask you for your pharmacy information again to match the pharmacy. The "Confirmation Code" you entered in your pharmacy registration will be requested at this stage. This code is also required for reading data from the medical medicine cabinet.
 
@@ -92,5 +92,15 @@ After the check, the medical medicine cabinet transfer process begins with this 
 
 The medical medicine cabinet approval process is summarized as follows: Should it be forwarded to the medical medicine cabinet? If yes, fill out the general justification. If no, ask if you want to fill out the detailed justification. If you want to fill out the detailed justification, fill out the general justification immediately after the detailed justification. If you don't want to fill out the detailed justification, fill out the general justification. Then save the results with all the details in SQL. Update the information on the (which means to turkish "Özgecmiş") page by adding the forwarding processes.
 
+Accept:
+
+<img width="193" height="142" alt="accept" src="https://github.com/user-attachments/assets/51b43290-fc8c-4bb7-a401-3529be9cf3a0" />
+
+Refuse:
+
+<img width="195" height="133" alt="detailrefuse" src="https://github.com/user-attachments/assets/cd26deea-d7b7-4510-9d9d-c933700f625e" />
+<img width="168" height="95" alt="refuse1" src="https://github.com/user-attachments/assets/8a614bce-ec5a-4baf-a953-aa7c1928d963" />
+<img width="266" height="226" alt="refuse2" src="https://github.com/user-attachments/assets/f7bd46fc-317c-4e43-8518-827c22829fb0" />
+<img width="229" height="178" alt="refuse3" src="https://github.com/user-attachments/assets/ba510960-e04f-4258-99a9-f03b5eb9766f" />
 
 
