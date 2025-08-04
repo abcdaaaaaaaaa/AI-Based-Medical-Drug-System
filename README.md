@@ -67,8 +67,26 @@ The probability of selecting each of these sentences is not equal. The usage of 
 When sentences change, they change not with their immediate meanings but with their direct synonyms. For example, if a sentence is a suggestion, all sentences become 
 suggestions, and if it's an imperative, all sentences become imperatives, all the way down to the order, which remains constant.
 
-If you will not be using the medicine cabinet after this stage, you are not required to register with the pharmacy.
-
 The system will direct you to transactions such as transfer to the medical medicine cabinet and medication registration within 7 seconds.
 7 seconds is the time it takes for the brain to perceive and make a decision. That's why it was determined to be 7 seconds.
+
+You can access your medication record (which translates to "ÖzGecmiş") by clicking the button above or using the /resume link. This is where you'll see all your records, from beginning to end.
+
+<img width="1000" height="500" alt="resume" src="https://github.com/user-attachments/assets/d56025b9-f782-456c-9eed-ab24a5345839" />
+
+If you will not be using the medicine cabinet after this stage, you are not required to register with the pharmacy.
+
+After 7 seconds, the system will direct you to a new page /save_medicine.
+
+<img width="500" height="450" alt="control" src="https://github.com/user-attachments/assets/075d04f1-8742-4a02-bd2c-e42a0705e117" />
+
+Assuming you've already registered with the pharmacy, the pharmacy will ask you for your pharmacy information again to match the pharmacy. The "Confirmation Code" you entered in your pharmacy registration will be requested at this stage. This code is also required for reading data from the medical medicine cabinet.
+
+The system will ask you to re-enter the information until you enter it correctly at this stage (until you match the pharmacy).
+
+After the check, the medical medicine cabinet transfer process begins with this stage.
+
+<img width="500" height="450" alt="medicalcontrol" src="https://github.com/user-attachments/assets/00484eca-e792-4ce6-b0c9-d5d5f02a52b8" />
+
+
 
