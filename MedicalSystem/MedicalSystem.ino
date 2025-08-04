@@ -122,11 +122,12 @@ void printRecord(String record) {
 
   int servoNum = fields[5].toInt();
   servos[servoNum - 1].write(180);
-  delay(960);
+  delay(978); // for v5.0
   servos[servoNum - 1].write(90);
-  delay(5080);
+  delay(5044);
   servos[servoNum - 1].write(180);
-  delay(960);
+  delay(978); // for v5.0
   servos[servoNum - 1].write(90);
   lcd.clear();
 }
+
