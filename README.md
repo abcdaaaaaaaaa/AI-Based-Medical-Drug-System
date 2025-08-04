@@ -11,6 +11,8 @@ To use our project, you must first log in as a user and enter your pharmacy info
 
 When you open the home page, a login form will appear asking for your login information.
 
+Please ensure you enter your sensitive information correctly. Sensitive information is stored in a specially encrypted format, and even if you enter the same information multiple times, the encryption algorithm will store it differently each time. You may intentionally enter your sensitive information incorrectly into our system, but if you cannot recall it (since not even the system owner has access to this information), you may not be able to log in to your account again.
+
 ## Login Form
 
 <img width="400" height="400" alt="loginform" src="https://github.com/user-attachments/assets/07a2ed19-4329-45de-aabe-3117f3ce2a7d" />
@@ -26,3 +28,8 @@ You must register with your pharmacy for additional transactions. Pharmacy regis
 ## Pharmacy Registration Form
 
 <img width="1000" height="450" alt="pharmacyregister" src="https://github.com/user-attachments/assets/60610679-2b8a-4d88-ac36-7d0f5cf8f4be" />
+
+You can specify the order of medications you want to see in your medicine cabinet by dragging them during the pharmacy registration process.
+
+After completing the necessary steps, the system will direct you to our home page.
+
