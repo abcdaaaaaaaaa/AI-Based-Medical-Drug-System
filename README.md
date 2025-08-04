@@ -4,6 +4,9 @@ The system language is Turkish. You can <strong>contribute</strong> to us in oth
 
 You can review our project at <strong>[doctor.uzay.info](https://doctor.uzay.info/)!</strong>
 
+<strong>Warning:</strong> This project was developed to provide safe and understandable dosage recommendations for non-prescription (over-the-counter) medications for common health complaints (e.g., fever, headache, stomachache, etc.). <strong>This information is for informational purposes only</strong>, please consult a healthcare provider <strong>if necessary</strong>.
+
+
 ## How to use?
 To use our project, you must first log in as a user and enter your pharmacy information. 
 
@@ -11,7 +14,7 @@ To use our project, you must first log in as a user and enter your pharmacy info
 
 When you open the home page, a login form will appear asking for your login information.
 
-Warning: Please ensure you enter your sensitive information correctly. Sensitive information is stored in a specially encrypted format, and even if you enter the same information multiple times, the encryption algorithm will store it differently each time. You may intentionally enter your sensitive information incorrectly into our system, but if you cannot recall it (since not even the system owner has access to this information), you may not be able to log in to your account again.
+<strong>Warning:</strong> Please ensure you enter your sensitive information correctly. Sensitive information is stored in a specially encrypted format, and even if you enter the same information multiple times, the encryption algorithm will store it differently each time. You may intentionally enter your sensitive information incorrectly into our system, but if you cannot recall it (since not even the system owner has access to this information), you may not be able to log in to your account again.
 
 ## Login Form
 
@@ -109,9 +112,7 @@ Once all the operations are completed, the screen will look like this:
 
 From here, the user can either report new issues to 3D Web Doctor via the "Yeniden Başlat" button on the Home Page. They can also log out via the "Çıkış" button. They can also review all their records via the "Özgeçmiş" button.
 
-## SQL
-
-All results are recorded in SQL to ensure they are always recorded.
+## SQL's
 
 Users SQL:
 
@@ -132,3 +133,5 @@ Pharmacies SQL:
 Pharmacy Result SQL:
 
 <img width="1000" height="100" alt="pharmacy_resultsql" src="https://github.com/user-attachments/assets/eafc4cab-36b1-42e6-aefd-1c50eaf3566f" />
+
+All results are saved in SQL to be always available!
