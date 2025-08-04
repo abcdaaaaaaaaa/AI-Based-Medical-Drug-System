@@ -51,3 +51,12 @@ When the system is first opened, it aims to determine your general condition. It
 
 <img width="400" height="400" alt="customquestion" src="https://github.com/user-attachments/assets/5b76b08b-553d-4458-b6b6-3f426bbc302b" />
 
+<img width="400" height="400" alt="suggestkg" src="https://github.com/user-attachments/assets/6ceb9798-f8fb-44bb-8934-5bd030888c5d" />
+
+After the system determines your illness and sub-illnesses, it requests your weight information (and fever if necessary) for treatment 
+(age information is obtained from the date of birth, please enter the actual date of birth).
+
+After this stage, the system offers treatment recommendations and, if necessary, recommends medication and dosage.
+
+<img width="400" height="450" alt="suggestdose" src="https://github.com/user-attachments/assets/c5f66e08-4d70-4ed8-9050-d6adfbcdb563" />
+
