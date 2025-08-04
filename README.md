@@ -114,24 +114,24 @@ From here, the user can either report new issues to 3D Web Doctor via the "Yenid
 
 ## SQL's
 
-Users SQL:
+All results are saved in SQL to be always available!
+
+<strong>Users SQL:</strong>
 
 <img width="1000" height="100" alt="userssql" src="https://github.com/user-attachments/assets/8d2d1a81-1ecc-4905-8293-621a0256fb20" />
 
-Ills SQL:
+<strong>Ills SQL:</strong>
 
 <img width="1000" height="90" alt="illssql" src="https://github.com/user-attachments/assets/799029cf-5c62-454c-ac90-f87e2d0be450" />
 
-Medicine Result SQL:
+<strong>Medicine Result SQL:</strong>
 
 <img width="1000" height="100" alt="medicine_resultsql" src="https://github.com/user-attachments/assets/7a858de8-8b70-420a-9073-6288feb5cb9b" />
 
-Pharmacies SQL:
+<strong>Pharmacies SQL:</strong>
 
 <img width="1000" height="80" alt="pharmaciessql" src="https://github.com/user-attachments/assets/dd1aa1f8-1417-4ccb-92e6-d76695d600b2" />
 
-Pharmacy Result SQL:
+<strong>Pharmacy Result SQL:</strong>
 
 <img width="1000" height="100" alt="pharmacy_resultsql" src="https://github.com/user-attachments/assets/eafc4cab-36b1-42e6-aefd-1c50eaf3566f" />
-
-All results are saved in SQL to be always available!
