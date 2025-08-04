@@ -103,4 +103,20 @@ Refuse:
 <img width="266" height="226" alt="refuse2" src="https://github.com/user-attachments/assets/f7bd46fc-317c-4e43-8518-827c22829fb0" />
 <img width="229" height="178" alt="refuse3" src="https://github.com/user-attachments/assets/ba510960-e04f-4258-99a9-f03b5eb9766f" />
 
+Once all the operations are completed, the screen will look like this:
 
+<img width="450" height="450" alt="userlastdata" src="https://github.com/user-attachments/assets/382f86c0-7f44-490a-83a6-578a50333df5" />
+
+From here, the user can either report new issues to 3D Web Doctor via the "Yeniden Başlat" button on the Home Page. They can also log out via the "Çıkış" button. They can also review all their records via the "Özgeçmiş" button.
+
+## SQL
+
+All results are recorded in SQL to ensure they are always recorded.
+
+Users SQL:
+
+<img width="1000" height="100" alt="userssql" src="https://github.com/user-attachments/assets/8d2d1a81-1ecc-4905-8293-621a0256fb20" />
+
+Pharmacies SQL:
+
+<img width="1000" height="80" alt="pharmaciessql" src="https://github.com/user-attachments/assets/3bc04bbb-cf18-44ad-a47f-709ed310b91e" />
